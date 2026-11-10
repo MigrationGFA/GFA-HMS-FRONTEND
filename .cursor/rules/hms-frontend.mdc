@@ -1,0 +1,31 @@
+---
+description: GFA Health HMS frontend conventions (offline demo)
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# HMS Frontend Rules (gfa-health-hms)
+
+## Product Context
+
+Offline sales demo of **GFA Health HMS** by GFA Health Technologies Ltd.
+Sample hospital identity: **GFA Demo Hospital**. No live backend.
+
+## Integration Modes
+
+- Demo only: repositories, `DatabaseProvider`, IndexedDB / localStorage, and `src/data/*` fixtures.
+- `env.useApi` is locked to `false` in `src/lib/env.ts`.
+- Prefer extending `src/data-access/` and local fixtures so pages stay presentable without a network.
+
+## Auth & Access
+
+- Use `AuthContext` and `RequireRole` for route/section gates.
+- Demo accounts live in `src/data/dummyData` (`*@gfa-health.demo`, password `password`).
+- Never store passwords in localStorage or log tokens.
+
+## UI Patterns
+
+- Role dashboards use `DashboardLayout` and existing workflow panels.
+- Use `LoadingButton`, `StatusBadge`, and shared skeletons for async states.
+- Brand colours: royal blue primary + mint green secondary (see `src/index.css`).
+- Logo: `src/assets/GFA-health.png`.

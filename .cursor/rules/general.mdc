@@ -1,0 +1,41 @@
+---
+description: General coding standards for GFA Health HMS demo
+alwaysApply: true
+---
+
+# General Coding Standards (gfa-health-hms)
+
+## Stack
+
+- Vite + React 18 + TypeScript
+- React Router, TanStack Query, React Hook Form + Zod
+- shadcn/ui + Tailwind
+- Vitest (unit) and Playwright (e2e)
+
+## TypeScript
+
+- Prefer `interface` for object shapes; `type` for unions and mapped types.
+- Avoid `any`. Use `unknown` and narrow with type guards.
+- Colocate feature types near the module that owns them.
+
+## React
+
+- Functional components and hooks only.
+- Put shared UI in `src/components/`; pages in `src/pages/`.
+- Reuse shadcn primitives from `src/components/ui/`.
+- Prefer data access via `src/data-access/` hooks and local fixtures over ad-hoc network calls.
+- This demo has **no backend** — do not wire `VITE_USE_API=true`.
+
+## Forms & Validation
+
+- Use React Hook Form with Zod resolvers for non-trivial forms.
+- Surface validation errors next to fields; use `sonner` / existing notify helpers for async feedback.
+
+## Env & Secrets
+
+- Read env only through `src/lib/env.ts` (offline demo lock).
+- Never commit real API URLs/tokens for production backends.
+
+## Design
+
+- Match established layout and the GFA royal-blue / mint palette.

@@ -1,0 +1,25 @@
+---
+description: Consultation autosave & draft recovery (demo / IndexedDB)
+globs: src/**/*{Consultation,Draft,autosave,draft}*
+alwaysApply: false
+---
+
+# Consultation Autosave & Draft Recovery
+
+Apply when implementing or changing Doctor Consultation draft/autosave behavior.
+
+## Stack to Reuse
+
+- Vite + React, React Hook Form, TanStack Query
+- Existing local persistence (`src/db/persistence.ts`) or IndexedDB for unsynced drafts
+- This project is an **offline demo** — persist drafts locally only; do not call a remote API
+
+## Requirements
+
+- Autosave **3 seconds** after the user stops typing (debounce).
+- Persist only changed fields in local storage / IndexedDB.
+- Show accurate save status (saving, saved, offline).
+- Restore the draft after refresh or failure.
+- **Never** auto-submit or auto-sign the note.
+- Explicit **Review and Sign** action only.
+- Add unit tests; reuse shared infrastructure.
